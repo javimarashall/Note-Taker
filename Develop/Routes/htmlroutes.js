@@ -4,7 +4,7 @@ const path = require("path");
 //Routing HTML
 module.exports = (app) => {
 //Route for index    
-    app.get("/home", (req, res) => {
+    app.get("/index", (req, res) => {
         res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 //Route for notes
@@ -14,4 +14,5 @@ module.exports = (app) => {
 //No matching route
     app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 }
