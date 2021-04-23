@@ -22,5 +22,26 @@ All notes saved will remain saved in the application if it gets reloaded. A cool
 * GitHub - Used as the repository
 
 ## Code Snippet
+This code snippet represents the code that was used for for writing the post into the database. Another thing this code represents is using the uuid package to assign an id to new posts made.  
 
+```java
+ app.post("/api/notes", (req, res) => { //need to add an ID
+        const newNote = req.body;
+        newNote.id = uuidv4();
+        promisifydRead("./db/db.json", "utf8").then((notes) => {
+            const allNotes = JSON.parse(notes);
+            allNotes.push(newNote);
+            promisifydWrite("./db/db.json", JSON.stringify(allNotes));
+            res.json(newNote);
+        });
+    })
+```
+## Repository Link
+https://github.com/javimarashall/Note-Taker
 
+## Deploy Link
+https://peaceful-earth-70189.herokuapp.com/
+
+## Personal Links
+[Github](https://github.com/javimarashall)<br>
+[Linkedin](https://www.linkedin.com/in/javier-mondragon-7b471719b/)

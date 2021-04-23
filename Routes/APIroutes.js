@@ -32,15 +32,7 @@ module.exports = (app) => {
         promisifydRead("./db/db.json", "utf8").then((notes) => {
             const allNotes = JSON.parse(notes);
             //remove a note with matching id from the notes list
-            const filterArray = allNotes.filter((note) => req.params.id !== note.id
-            
-            // {
-            //     if (req.params.id === note.id) {
-            //         return false
-            //     }
-
-            //     return true;
-            // }
+            const filterArray = allNotes.filter((note) => req.params.id !== note.id           
             )
             promisifydWrite("./db/db.json", JSON.stringify(filterArray));
             res.json({id: req.params.id});
